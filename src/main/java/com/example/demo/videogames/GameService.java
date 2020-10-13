@@ -12,10 +12,10 @@ public class GameService {
     private static final List<Game> GAMES = Arrays.asList(
             new Game("Cheese eater", 299.0d, 12),
             new Game("Space Shooter 2020", 123.0d, 2),
-            new Game("Worm hunter", 77.5d, 3),
+            new Game("Worm hunter", 77.5d, 10),
             new Game("Tea party simulator", 1299.0d, 20),
             new Game("Fishing game 9", 460.5d, 10),
-            new Game("Very scary game", 33.0d, 2)
+            new Game("Very scary game", 33.0d, 22)
     );
 
     public Observable<Game> gamesForSale(){

@@ -43,6 +43,7 @@ public class GameServiceTest {
             }
         };
 
+//        gameObservable.subscribe(observer);
         gameObservable.filter(game -> game.getStorage() > 10).subscribe(observer);
     }
 }
