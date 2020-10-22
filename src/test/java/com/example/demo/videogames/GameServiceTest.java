@@ -20,6 +20,9 @@ public class GameServiceTest {
 //        );
         Observer observer = new Observer<Game>(){
             Disposable disposable;
+            public void doUnSubscribe(){
+                disposable.dispose();
+            }
             @Override
             public void onSubscribe(@NonNull Disposable d) {
                 disposable = d;
@@ -29,12 +32,12 @@ public class GameServiceTest {
             public void onNext(@NonNull Game game) {
 //                if (game.getName().startsWith("Worm"))
 //                    disposable.dispose();
-                System.out.println(game);
+                System.out.println("OnNext =  " + game);
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
-                System.out.println(e);
+                System.out.println("Error observer: " + e);
             }
 
             @Override
@@ -42,8 +45,8 @@ public class GameServiceTest {
                 System.out.println("completed...");
             }
         };
-
-//        gameObservable.subscribe(observer);
-        gameObservable.filter(game -> game.getStorage() > 10).subscribe(observer);
+//
+        gameObservable.subscribe(observer);
+        gameObservable.filter(game -> game.getStorage() > 0).subscribe(observer);
     }
 }
